@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]AudioSource audioSFX;
     GameObject winText;
 
-    public int lastScene = 9;
+    public int lastScene = 8;
 
     private void Awake()
     {
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
         winText.SetActive(true);
         audioSFX.Play();
         yield return new WaitForSeconds(2f);
-        if(SceneManager.GetActiveScene().buildIndex+1 == lastScene)SceneManager.LoadScene(0);
+        if(SceneManager.GetActiveScene().buildIndex >= lastScene)SceneManager.LoadScene(1);
         else SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
